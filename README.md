@@ -1,10 +1,14 @@
 # 🔗 Django URL Shortener with Smart Rate Limiting & Abuse Detection
 
-A production-inspired backend system built using Django + Django REST Framework, designed to simulate real-world traffic control and security challenges faced by scalable web platforms.
+A production-grade backend system built using Django + DRF, designed to simulate real-world traffic control, abuse prevention, and scalable URL redirection systems.
 
-This project goes beyond basic CRUD — it implements custom middleware, heuristic abuse detection, and database-backed URL redirection, showcasing practical backend engineering skills.
+This project demonstrates backend engineering beyond CRUD, focusing on:
 
-Built with product-company interview standards in mind.
+ ✅Traffic shaping
+
+ ✅Security heuristics
+
+ ✅Distributed system patterns.
 
 ## 🔥 Why This Project Stands Out
  **🚀 End-to-End URL Shortening Pipeline**
@@ -108,7 +112,8 @@ README.md
 ```
 
 ## 🔐 Rate Limiting Strategy
-
+- Implemented using Redis
+- Sliding window / token bucket approach
 Each IP maintains a rolling window of timestamps:
 
 Requests older than 60 seconds are discarded
@@ -126,7 +131,12 @@ TIME_WINDOW = 60
 
 **HTTP 429 – Too Many Requests**
 
-
+Why Redis?
+- Fast in-memory access
+- Atomic operations
+Scaling:
+- Stateless API servers
+- Centralized Redis
 ## 🚨 Abuse Detection Rules
 
 Each request is scored based on:
