@@ -4,14 +4,10 @@ from urllib.parse import urlparse
 
 # Store behavior per IP
 USER_BEHAVIOR = defaultdict(list)
-
 ABUSE_THRESHOLD = 60
-
-
 def detect_abuse(ip, url):
     score = 0
     now = time.time()
-
     # Keep only last 60 seconds activity
     USER_BEHAVIOR[ip] = [
         t for t in USER_BEHAVIOR[ip]
