@@ -39,7 +39,7 @@ MySQL Database            ← Atomic click increments, persistent storage
 **Redirect flow:**
 
 ```
-Short URL → DB Lookup → Atomic Click Increment (F expression) → 301 Redirect
+Short URL → DB Lookup → Atomic Click Increment (F expression) → 302 Redirect
 ```
 
 ---
